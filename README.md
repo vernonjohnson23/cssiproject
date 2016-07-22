@@ -1,2 +1,4 @@
-# cssiproject
-Author: Vernon Terence Johnson
+CSSI Project
+
+Authors: Alyssa Wang, Vernon Johnson, Bakari Bridges
+
