@@ -1,4 +1,4 @@
 CSSI Project
 
-Authors: Bakari Bridges ,Alyssa Wang ,Vernon Johnson
+Authors: Bakari Bridges, Alyssa Wang, Vernon Johnson
 
