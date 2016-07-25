@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> In Touch - Entries</title>
+</head>
+
+<body>
+  <h1> Input Contacts </h1>
+  <p>Instructions:  Complete the forms below to track how often you speak to your loved ones.</p>
+
+  <form action="/input" input="text" method="post">
+
+    <h2> Contact:</h2>
+
+    <p>
+      Enter contact name:
+      <input type="text" name="contactName"><br>
+      Enter phone number:
+      <input type="text" name="phoneNumber"><br>
+      How many times have you contacted the above relative/friend?
+      <input type="text" name="numberOfCalls"><br>
+      When was the last time you contacted the above relative/friend?
+      <input type="text" name="dateOfLastCall"><br>
+      <!-- How many minutes have you phoned this person?<br> -->
+    </p>
+
+    <input type="submit" value="Submit">
+
+  </form>
+  <br>
+  <a href="/info"> View Your Contacts <a>
+
+</body>
+</html>

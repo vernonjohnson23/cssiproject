@@ -1,0 +1,53 @@
+body {
+  background-color: black;
+  background-image: url("http://beautifuldecay.com/wp-content/uploads/2014/06/carregif.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+
+}
+
+h1, .title {
+  font: 300 100px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  color: maroon;
+  text-align: center;
+  text-shadow: 2px 2px white;
+  margin-top:-22px;
+  margin-bottom: -40px;
+  }
+h2{
+   text-shadow:1.5px 1.5px black;
+   text-align: center;
+  }
+
+
+#bothforms {
+  display: block;
+  text-align: center;
+  background-color: rgba(0,0,0,.4);
+  padding: 8px;
+  padding: 8px;
+  border: 8px solid maroon;
+  width: 40%;
+  height: 40%;
+  margin-right: auto;
+  margin-left: auto;
+}
+#texinput, #formstyle, .forms {
+  font-family: Times;
+  text-shadow:1.5px 1.5px black;
+  color: white;
+}
+
+#backgroundtext {
+  background-color: rgba(0,0,0,.4);
+  padding: 8px;
+  border: 8px solid maroon;
+  width: 90%;
+  height: 20%;
+}
+
+.title{
+  margin-bottom: 100px;
+}
