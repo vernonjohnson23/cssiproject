@@ -10,6 +10,7 @@ class Contact(ndb.Model):
     contactName = ndb.StringProperty(required=True)
     phoneNumber = ndb.StringProperty(required=True)
     numberOfCalls = ndb.StringProperty(required=True)
+    dateOfLastCall = ndb.StringProperty(required=True)
 
 
 class MainHandler(webapp2.RequestHandler):
@@ -19,17 +20,23 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(html)
 
 class InputHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template("inputpage.html")
+        html = template.render({})
+        self.response.write(html)
+
     def post(self):
         contactName = self.request.get("contactName")
         phoneNumber = self.request.get("phoneNumber")
         numberOfCalls = self.request.get("numberOfCalls")
+        dateOfLastCall = self.request.get("dateOfLastCall")
 
-        contact = Contact(contactName=contactName, phoneNumber=phoneNumber, numberOfCalls=numberOfCalls)
+        contact = Contact(contactName=contactName, phoneNumber=phoneNumber, numberOfCalls=numberOfCalls, dateOfLastCall=dateOfLastCall)
         contact.put()
-        logging.info(contact.contactName + contact.phoneNumber + contact.numberOfCalls)
+        logging.info(contact.contactName + contact.phoneNumber + contact.numberOfCalls + contact.dateOfLastCall)
 
         template = jinja_environment.get_template("inputpage.html")
-        html = template.render({"contactName": contactName, "phoneNumber": phoneNumber, "numberOfCalls": numberOfCalls})
+        html = template.render({"contactName": contactName, "phoneNumber": phoneNumber, "numberOfCalls": numberOfCalls, "dateOfLastCall": dateOfLastCall})
         self.response.write(html)
 
 class InfoHandler(webapp2.RequestHandler):
@@ -39,8 +46,7 @@ class InfoHandler(webapp2.RequestHandler):
         contact_query = Contact.query()
         contacts = contact_query.fetch()
         for contact in contacts:
-            logging.info(contact.contactName + contact.phoneNumber + contact.numberOfCalls)
-            self.response.write(contact.contactName + " | " + contact.phoneNumber + " | " + contact.numberOfCalls + "<br>")
+            self.response.write(contact.contactName + " | " + contact.phoneNumber + " | " + contact.numberOfCalls + " | " + contact.dateOfLastCall + "<br>")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
