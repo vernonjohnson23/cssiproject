@@ -28,7 +28,7 @@ class SiteHandler(webapp2.RequestHandler):
         html = template.render({})
         self.response.write(template.render({"title": title, "post": post}))
 
-class BlogPostHandler(webapp2.RequestHandler):
+class InfoHandler(webapp2.RequestHandler):
     def get(self):
         logging.info("get function")
         self.response.write('Blog Posts <br>')
@@ -40,5 +40,5 @@ class BlogPostHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/input', SiteHandler),
-    ('/info', BlogPostHandler)
+    ('/info', InfoHandler)
 ], debug=True)
