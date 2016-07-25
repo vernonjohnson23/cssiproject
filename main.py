@@ -6,9 +6,11 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
 
-class BlogPost(ndb.Model):
-  title = ndb.StringProperty(required=True)
-  post = ndb.StringProperty(required=True)
+class Contact(ndb.Model):
+    contactName = ndb.StringProperty(required=True)
+    phoneNumber = ndb.StringProperty(required=True)
+    numberOfCalls = ndb.StringProperty(required=True)
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -16,29 +18,32 @@ class MainHandler(webapp2.RequestHandler):
         html = template.render({})
         self.response.write(html)
 
-class SiteHandler(webapp2.RequestHandler):
+class InputHandler(webapp2.RequestHandler):
     def post(self):
-        title = self.request.get("title")
-        post = self.request.get("post")
+        contactName = self.request.get("contactName")
+        phoneNumber = self.request.get("phoneNumber")
+        numberOfCalls = self.request.get("numberOfCalls")
 
-        blog_post = BlogPost(title=title, post=post)
-        blog_post.put()
-        logging.info(blog_post.title + blog_post.post)
+        contact = Contact(contactName=contactName, phoneNumber=phoneNumber, numberOfCalls=numberOfCalls)
+        contact.put()
+        logging.info(contact.contactName + contact.phoneNumber + contact.numberOfCalls)
+
         template = jinja_environment.get_template("inputpage.html")
-        html = template.render({})
-        self.response.write(template.render({"title": title, "post": post}))
+        html = template.render({"contactName": contactName, "phoneNumber": phoneNumber, "numberOfCalls": numberOfCalls})
+        self.response.write(html)
 
 class InfoHandler(webapp2.RequestHandler):
     def get(self):
         logging.info("get function")
-        self.response.write('Blog Posts <br>')
-        blog_post_query = BlogPost.query()
-        blog_posts = blog_post_query.fetch()
-        for blog_post in blog_posts:
-            self.response.write("by " + blog_post.title + "<br>" +blog_post.text_of_post + "<br>")
+        self.response.write('Contacts <br>')
+        contact_query = Contact.query()
+        contacts = contact_query.fetch()
+        for contact in contacts:
+            logging.info(contact.contactName + contact.phoneNumber + contact.numberOfCalls)
+            self.response.write(contact.contactName + " | " + contact.phoneNumber + " | " + contact.numberOfCalls + "<br>")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/input', SiteHandler),
+    ('/input', InputHandler),
     ('/info', InfoHandler)
 ], debug=True)
