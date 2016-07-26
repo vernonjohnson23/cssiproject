@@ -10,7 +10,7 @@ jinja_environment = jinja2.Environment(
 class Contact(ndb.Model):
     contactName = ndb.StringProperty(required=True)
     phoneNumber = ndb.StringProperty(required=True)
-    numberOfCalls = ndb.StringProperty(required=True)
+    numberOfCalls = ndb.IntegerProperty(required=False)
     dateOfLastCall = ndb.StringProperty(required=True)
     userID = ndb.StringProperty(required=True)
 
@@ -30,9 +30,7 @@ class CssiUser(ndb.Model):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template("index.html")
-        html = template.render({})
-        self.response.write(html)
+
 
         user = users.get_current_user()
         # If the user is logged in...
@@ -67,6 +65,10 @@ class MainHandler(webapp2.RequestHandler):
                     # Otherwise, the user isn't logged in!
 
         else:
+            template = jinja_environment.get_template("index.html")
+            html = template.render({})
+            self.response.write(html)
+
             self.response.write('''
                 Please log in to use our site! <br>
                 <a href="%s">Sign in</a>''' % (
@@ -99,11 +101,15 @@ class InputHandler(webapp2.RequestHandler):
         self.response.write(html)
 
     def post(self):
+        template = jinja_environment.get_template("inputpage.html")
+        html = template.render({})
+        self.response.write(html)
+
         logging.info("input post")
 
         contactName = self.request.get("contactName")
         phoneNumber = self.request.get("phoneNumber")
-        numberOfCalls = self.request.get("numberOfCalls")
+        numberOfCalls = int(self.request.get("numberOfCalls"))
         dateOfLastCall = self.request.get("dateOfLastCall")
 
         #getting user key
@@ -124,13 +130,6 @@ class InputHandler(webapp2.RequestHandler):
                                 "phone number": phoneNumber,
                                 "number of calls": numberOfCalls,
                                 "date of last call": dateOfLastCall})
-        contact = Contact(contactName=contactName, phoneNumber=phoneNumber, numberOfCalls=numberOfCalls, dateOfLastCall=dateOfLastCall)
-        contact.put()
-        logging.info(contact.contactName + contact.phoneNumber + contact.numberOfCalls + contact.dateOfLastCall)
-
-        template = jinja_environment.get_template("inputpage.html")
-        html = template.render({"contactName": contactName, "phoneNumber": phoneNumber, "numberOfCalls": numberOfCalls, "dateOfLastCall": dateOfLastCall})
-        self.response.write(html)
 
 class InfoHandler(webapp2.RequestHandler):
     def get(self):
@@ -155,12 +154,6 @@ class InfoHandler(webapp2.RequestHandler):
         for contact in contacts:
             self.response.write("%s | %s | %s | %s <br>" %
                                 (contact.contactName, contact.phoneNumber, contact.numberOfCalls, contact.dateOfLastCall))
-        logging.info("get function")
-        self.response.write('Contacts <br>')
-        contact_query = Contact.query()
-        contacts = contact_query.fetch()
-        for contact in contacts:
-            self.response.write(contact.contactName + " | " + contact.phoneNumber + " | " + contact.numberOfCalls + " | " + contact.dateOfLastCall + "<br>")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
