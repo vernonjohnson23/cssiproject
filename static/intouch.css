@@ -1,53 +1,58 @@
 body {
-  background-color: black;
-  background-image: url("http://beautifuldecay.com/wp-content/uploads/2014/06/carregif.gif");
-  background-repeat: no-repeat;
+  background-color: linen;
+  background-image: url("http://www.iamnewfoundland.com/wp-content/uploads/2015/01/newfoundlandfamily.jpg");
   background-size: cover;
-  background-attachment: fixed;
-  color: white;
-
 }
 
 h1, .title {
-  font: 300 100px/1.3 'Berkshire Swash', Helvetica, sans-serif;
-  color: maroon;
+  font: 300 100px/1.3	"Arial Black", Gadget, sans-serif;
+  color: white;
   text-align: center;
-  text-shadow: 2px 2px white;
+  text-shadow: 2px 2px green;
   margin-top:-22px;
   margin-bottom: -40px;
   }
 h2{
-   text-shadow:1.5px 1.5px black;
+   font-style: italic;
+   text-shadow:1.5px 1.5px green;
    text-align: center;
+   color: black;
   }
-
-
-#bothforms {
+h1, .title2 {
+  padding-bottom: 30px
+}
+#nameinput {
   display: block;
   text-align: center;
-  background-color: rgba(0,0,0,.4);
-  padding: 8px;
-  padding: 8px;
-  border: 8px solid maroon;
-  width: 40%;
-  height: 40%;
-  margin-right: auto;
-  margin-left: auto;
-}
-#texinput, #formstyle, .forms {
-  font-family: Times;
-  text-shadow:1.5px 1.5px black;
-  color: white;
 }
 
-#backgroundtext {
-  background-color: rgba(0,0,0,.4);
-  padding: 8px;
-  border: 8px solid maroon;
-  width: 90%;
-  height: 20%;
-}
+#sidebar {
+float:left;
+width:250px;
+margin-top: 45px;
 
-.title{
-  margin-bottom: 100px;
+padding: 3px;
+padding: 3px;
+border: 3px solid green;
+border-radius: 15px 50px;
+background-color: white;
+opacity: 0.9;
+box-shadow: 10px 10px 5px #888888;
+}
+#nav {
+  text-shadow:1.5px 1.5px green;
+  text-align: center;
+  color: black;
+  font-size: 25px;
+  margin-bottom: -8px;
+  margin-top: 10px;
+}
+#sidebaritems {
+  font-size: 20px;
+}
+table, td {
+  border: 3px solid green;
+}
+th {
+  text-align:center;
 }
