@@ -99,6 +99,10 @@ class InputHandler(webapp2.RequestHandler):
         self.response.write(html)
 
     def post(self):
+        template = jinja_environment.get_template("inputpage.html")
+        html = template.render({})
+        self.response.write(html)
+
         logging.info("input post")
 
         contactName = self.request.get("contactName")
@@ -124,13 +128,6 @@ class InputHandler(webapp2.RequestHandler):
                                 "phone number": phoneNumber,
                                 "number of calls": numberOfCalls,
                                 "date of last call": dateOfLastCall})
-        contact = Contact(contactName=contactName, phoneNumber=phoneNumber, numberOfCalls=numberOfCalls, dateOfLastCall=dateOfLastCall)
-        contact.put()
-        logging.info(contact.contactName + contact.phoneNumber + contact.numberOfCalls + contact.dateOfLastCall)
-
-        template = jinja_environment.get_template("inputpage.html")
-        html = template.render({"contactName": contactName, "phoneNumber": phoneNumber, "numberOfCalls": numberOfCalls, "dateOfLastCall": dateOfLastCall})
-        self.response.write(html)
 
 class InfoHandler(webapp2.RequestHandler):
     def get(self):
@@ -156,11 +153,6 @@ class InfoHandler(webapp2.RequestHandler):
             self.response.write("%s | %s | %s | %s <br>" %
                                 (contact.contactName, contact.phoneNumber, contact.numberOfCalls, contact.dateOfLastCall))
         logging.info("get function")
-        self.response.write('Contacts <br>')
-        contact_query = Contact.query()
-        contacts = contact_query.fetch()
-        for contact in contacts:
-            self.response.write(contact.contactName + " | " + contact.phoneNumber + " | " + contact.numberOfCalls + " | " + contact.dateOfLastCall + "<br>")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
