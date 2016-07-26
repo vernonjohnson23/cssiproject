@@ -1,5 +1,4 @@
 import webapp2, jinja2, os, logging
-from google.appengine.api import users
 from google.appengine.ext import ndb
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -30,8 +29,6 @@ class CssiUser(ndb.Model):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        logging.info("main get")
-
         template = jinja_environment.get_template("index.html")
         html = template.render({})
         self.response.write(html)
@@ -96,8 +93,6 @@ class MainHandler(webapp2.RequestHandler):
 
 class InputHandler(webapp2.RequestHandler):
     def get(self):
-        logging.info("input get")
-
         template = jinja_environment.get_template("inputpage.html")
         html = template.render({})
         self.response.write(html)
@@ -128,6 +123,12 @@ class InputHandler(webapp2.RequestHandler):
                                 "phone number": phoneNumber,
                                 "number of calls": numberOfCalls,
                                 "date of last call": dateOfLastCall})
+        contact = Contact(contactName=contactName, phoneNumber=phoneNumber, numberOfCalls=numberOfCalls, dateOfLastCall=dateOfLastCall)
+        contact.put()
+        logging.info(contact.contactName + contact.phoneNumber + contact.numberOfCalls + contact.dateOfLastCall)
+
+        template = jinja_environment.get_template("inputpage.html")
+        html = template.render({"contactName": contactName, "phoneNumber": phoneNumber, "numberOfCalls": numberOfCalls, "dateOfLastCall": dateOfLastCall})
         self.response.write(html)
 
 class InfoHandler(webapp2.RequestHandler):
@@ -153,6 +154,12 @@ class InfoHandler(webapp2.RequestHandler):
         for contact in contacts:
             self.response.write("%s | %s | %s | %s <br>" %
                                 (contact.contactName, contact.phoneNumber, contact.numberOfCalls, contact.dateOfLastCall))
+        logging.info("get function")
+        self.response.write('Contacts <br>')
+        contact_query = Contact.query()
+        contacts = contact_query.fetch()
+        for contact in contacts:
+            self.response.write(contact.contactName + " | " + contact.phoneNumber + " | " + contact.numberOfCalls + " | " + contact.dateOfLastCall + "<br>")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
