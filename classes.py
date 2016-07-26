@@ -1,6 +1,6 @@
-import webapp2, jinja2, os, logging
-<<<<<<< HEAD
+import webapp2, jinja2, os, logging, time, datetime
 from google.appengine.ext import ndb
+from google.appengine.api import users
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
@@ -10,15 +10,14 @@ class Schedule(ndb.Model):
     className = ndb.StringProperty(required=True)
     roomNumber = ndb.StringProperty(required=True)
     classTime = ndb.StringProperty(required=True)
-=======
-from google.appengine.api import users
-from google.appengine.ext import ndb
 
 class Contact(ndb.Model):
     contactName = ndb.StringProperty(required=True)
     phoneNumber = ndb.StringProperty(required=True)
     numberOfCalls = ndb.IntegerProperty(required=False)
     dateOfLastCall = ndb.StringProperty(required=True)
+    #dateOfLastCall = ndb.DateProperty(required=True)
+    #time of next call needs to be added
     userID = ndb.StringProperty(required=True)
 
 class CssiUser(ndb.Model):
@@ -34,4 +33,3 @@ class CssiUser(ndb.Model):
     """
     first_name = ndb.StringProperty()
     last_name = ndb.StringProperty()
->>>>>>> b6b13cb9fc66e172f4e4196c2cf22d4ff5917992
