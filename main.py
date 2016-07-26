@@ -52,7 +52,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write(html)
 
             self.response.write('''
-                <a href="%s">Sign in</a>''' % (
+                <center><a href="%s">Sign in</a></center>''' % (
                 users.create_login_url('/')))
 
     def post(self):
