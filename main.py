@@ -1,4 +1,5 @@
 import webapp2, jinja2, os, logging
+from google.appengine.api import users
 from google.appengine.ext import ndb
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
