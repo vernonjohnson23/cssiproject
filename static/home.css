@@ -1,0 +1,11 @@
+body {
+  background-image: url("https://cdn.lafayette.edu/images/footer/campus_aerial-1440x810.jpg");
+  background-size: auto;
+}
+h1 {
+  color: white;
+  text-shadow: 2px 2px green;
+}
+h2 {
+  color: white
+}
