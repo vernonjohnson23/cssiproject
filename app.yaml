@@ -13,6 +13,10 @@ handlers:
   static_files: static/intouch.css
   upload: static/intouch\.css
 
+- url: /home\.css
+  static_files: static/home.css
+  upload: static/home\.css
+
 - url: /.*
   script: main.app
 

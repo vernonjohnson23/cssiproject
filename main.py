@@ -14,8 +14,6 @@ jinja_environment = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-
-
         user = users.get_current_user()
         # If the user is logged in...
         if user:
