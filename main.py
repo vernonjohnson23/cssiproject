@@ -2,13 +2,15 @@ import webapp2, jinja2, os, logging, time, datetime
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
+import classschedulehandler
+import classes
+import sidebar
 import inputhandler
 import infohandler
 import edithandler
 import classes
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
-#tells which directory file is in
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
 
@@ -52,7 +54,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write(html)
 
             self.response.write('''
-                <a href="%s">Sign in</a>''' % (
+                <center><a href="%s">Sign in</a></center>''' % (
                 users.create_login_url('/')))
 
     def post(self):
@@ -78,5 +80,7 @@ app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/input', inputhandler.InputHandler),
     ('/info', infohandler.InfoHandler),
-    ('/edit', edithandler.EditHandler)
+    ('/edit', edithandler.EditHandler),
+    ('/classschedule', sidebar.SideBarHandler),
+    ('/classlist', classschedulehandler.ClassScheduleHandler)
 ], debug=True)
