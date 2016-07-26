@@ -1,23 +1,4 @@
-body {
-  background-color: linen;
-  background-image: url("http://www.iamnewfoundland.com/wp-content/uploads/2015/01/newfoundlandfamily.jpg");
-  background-size: cover;
-}
 
-h1, .title {
-  font: 300 100px/1.3	"Arial Black", Gadget, sans-serif;
-  color: white;
-  text-align: center;
-  text-shadow: 2px 2px green;
-  margin-top:-22px;
-  margin-bottom: -40px;
-  }
-h2{
-   font-style: italic;
-   text-shadow:1.5px 1.5px green;
-   text-align: center;
-   color: black;
-  }
 h1, .title2 {
   padding-bottom: 30px
 }
