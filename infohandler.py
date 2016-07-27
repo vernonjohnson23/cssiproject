@@ -29,8 +29,9 @@ class InfoHandler(webapp2.RequestHandler):
                                 contact.numberOfCalls,
                                 contact.dateOfLastCall))
 
-            if datetime.date.today() == contact.dateOfReminder:
-                self.response.write("<br>" + "CALL " + contact.contactName.upper() + "<br><br>")
+            #if today's date is the same as the date of the reminder
+            if datetime.datetime.today().date() == datetime.datetime.combine(contact.dateOfReminder, datetime.time.min).date():
+                self.response.write("CALL " + contact.contactName.upper() )
 
         # template = jinja_environment.get_template("info.html")
         # html = template.render({"contactName": contactName,
