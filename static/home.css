@@ -60,6 +60,8 @@ text-shadow: 1.5px 1.5px green
 #sidebaritems {
   font-size: 20px;
 }
-
+li a {
+  color: black;
+}
 p {
   color: white;
