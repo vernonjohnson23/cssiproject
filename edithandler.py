@@ -25,7 +25,17 @@ class EditHandler(webapp2.RequestHandler):
         contactName = self.request.get("contactName")
         phoneNumber = self.request.get("phoneNumber")
         numberOfCalls = int(self.request.get("numberOfCalls"))
-        dateOfLastCall = self.request.get("dateOfLastCall")
+
+        #getting date from user, splitting it into numbers
+        date = str(self.request.get("dateOfLastCall"))
+        dateParts = date.split('-', 2 )
+
+        #building a date
+        dateYear = int(dateParts[0])
+        dateMonth = int(dateParts[1])
+        dateDay = int(dateParts[2])
+
+        dateOfLastCall = datetime.date(dateYear, dateMonth, dateDay)
 
         #getting user key
         current_user = users.get_current_user()

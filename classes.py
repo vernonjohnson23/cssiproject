@@ -15,8 +15,7 @@ class Contact(ndb.Model):
     contactName = ndb.StringProperty(required=True)
     phoneNumber = ndb.StringProperty(required=True)
     numberOfCalls = ndb.IntegerProperty(required=False)
-    dateOfLastCall = ndb.StringProperty(required=True)
-    #dateOfLastCall = ndb.DateProperty(required=True)
+    dateOfLastCall = ndb.DateProperty(required=True)
     #time of next call needs to be added
     userID = ndb.StringProperty(required=True)
 
