@@ -1,4 +1,4 @@
-import webapp2, jinja2, os, logging, time, datetime
+import webapp2, jinja2, os, logging, time, datetime, math
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
@@ -35,7 +35,17 @@ class InputHandler(webapp2.RequestHandler):
         dateMonth = int(dateParts[1])
         dateDay = int(dateParts[2])
 
-        dateOfLastCall = datetime.date(dateYear, dateMonth, dateDay)
+        dateOfLastCall = datetime.datetime(dateYear, dateMonth, dateDay)
+
+        #number of days until next reminder
+        reminder = int(self.request.get("reminder"))
+
+        #today as a date
+        today = time.time()
+        newDateS = reminder * 24 * 60 * 60 + today
+
+        #convert to sec since epoch and back into a date
+        dateOfReminder = datetime.datetime.utcfromtimestamp(newDateS)
 
         #getting user key
         current_user = users.get_current_user()
@@ -46,6 +56,8 @@ class InputHandler(webapp2.RequestHandler):
             phoneNumber=phoneNumber,
             numberOfCalls=numberOfCalls,
             dateOfLastCall=dateOfLastCall,
+            reminder=reminder,
+            dateOfReminder=dateOfReminder,
             userID=userID,
             )
         contact.put()

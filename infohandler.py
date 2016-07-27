@@ -20,17 +20,17 @@ class InfoHandler(webapp2.RequestHandler):
         #getting current user key
         user = users.get_current_user().user_id()
 
-        # user_query = CssiUser.query()
-        # users = user_query.fetch().filter()
-        # for user in users:
-            # self.response.write("user key: %s first name: %s last name: %s <br>" %
-            #                     (user.key.id(), user.first_name, user.last_name))
-
         contact_query = classes.Contact.query(classes.Contact.userID == user)
         contacts = contact_query.fetch()#.filter(contact_query.userid == user) #.fetch()
         for contact in contacts:
-            self.response.write("<br><br>%s | %s | %s | %s <br>" %
-                                (contact.contactName, contact.phoneNumber, contact.numberOfCalls, contact.dateOfLastCall))
+            self.response.write("<br><br>%s | %s | %s | %s <br>" % (
+                                contact.contactName,
+                                contact.phoneNumber,
+                                contact.numberOfCalls,
+                                contact.dateOfLastCall))
+
+            if datetime.date.today() == contact.dateOfReminder:
+                self.response.write("<br>" + "CALL " + contact.contactName.upper() + "<br><br>")
 
         # template = jinja_environment.get_template("info.html")
         # html = template.render({"contactName": contactName,

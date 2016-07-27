@@ -35,7 +35,17 @@ class EditHandler(webapp2.RequestHandler):
         dateMonth = int(dateParts[1])
         dateDay = int(dateParts[2])
 
-        dateOfLastCall = datetime.date(dateYear, dateMonth, dateDay)
+        dateOfLastCall = datetime.datetime(dateYear, dateMonth, dateDay)
+
+        #number of days until next reminder
+        reminder = int(self.request.get("reminder"))
+
+        #today as a date
+        today = time.time()
+        newDateS = reminder * 24 * 60 * 60 + today
+
+        #convert to sec since epoch and back into a date
+        dateOfReminder = datetime.datetime.utcfromtimestamp(newDateS)
 
         #getting user key
         current_user = users.get_current_user()
@@ -49,6 +59,8 @@ class EditHandler(webapp2.RequestHandler):
             contact.phoneNumber = phoneNumber
             contact.numberOfCalls = numberOfCalls
             contact.dateOfLastCall = dateOfLastCall
+            contact.reminder = reminder
+            contact.dateOfReminder = dateOfReminder
             contact.put()
 
         # template = jinja_environment.get_template("info.html")
