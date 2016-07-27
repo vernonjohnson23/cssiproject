@@ -34,8 +34,8 @@ class InfoHandler(webapp2.RequestHandler):
                 self.response.write("CALL " + contact.contactName.upper() )
 
         # template = jinja_environment.get_template("info.html")
-        # html = template.render({"contactName": contactName,
-        #                         "phoneNumber": phoneNumber,
-        #                         "numberOfCalls": numberOfCalls,
-        #                         "dateOfLastCall": dateOfLastCall})
+        # html = template.render({"contactName": contact.contactName,
+        #                         "phoneNumber": contact.phoneNumber,
+        #                         "numberOfCalls": contact.numberOfCalls,
+        #                         "dateOfLastCall": contact.dateOfLastCall})
         # self.response.write(html)
