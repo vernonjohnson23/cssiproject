@@ -4,11 +4,7 @@ body {
 }
 h1 {
   color: white;
-  text-shadow: 2px 2px green;
-}
-h2 {
-  color: white;
-}
+  text-shadow: 2px 2px green;}
 
 h1, .title {
   font: 300 100px/1.3	"Arial Black", Gadget, sans-serif;
@@ -19,15 +15,19 @@ h1, .title {
   margin-bottom: -40px;
 }
 
-h2{
+h2 {
    font-style: italic;
    text-shadow:1.5px 1.5px green;
    text-align: center;
    color: white;
+   color: white;
 }
 
-h1, .title2 {
-  padding-bottom: 30px
+
+}
+
+#loginprompt {
+text-shadow: 1.5px 1.5px green
 }
 
 #nameinput {
@@ -60,16 +60,8 @@ h1, .title2 {
 #sidebaritems {
   font-size: 20px;
 }
-
-table, td {
-  border: 3px solid green;
-}
-th {
-  text-align:center;
+li a {
+  color: black;
 }
 p {
   color: white;
-}
-#si {
-  text-align: center;
-}
