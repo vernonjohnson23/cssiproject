@@ -5,31 +5,6 @@
     <link rel="stylesheet" href="intouch.css">
   </head>
 <body>
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-      <a href="/">Home</a>
-      <a href="/classlist">Class Schedule</a>
-      <a href="/info"> Contacts</a>
-      <a href="/inputnotes">Notes</a>
-
-    </div>
-
-    <div id="main">
-      <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
-    </div>
-
-    <script>
-      function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
-      }
-
-      function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
-      }
-    </script>
-
     <div id = "contactsinfo">
       <p> Name: {{ contactName }} </p>
       <p> Number: {{ phoneNumber }} </p>

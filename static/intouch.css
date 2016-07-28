@@ -3,11 +3,7 @@ body {
   background-size: auto;
 }
 
-h1 {
-  color: white;
-  text-shadow: 2px 2px green;
-}
-h2, #contactinput {
+#contactinput {
   color: white;
 }
 
@@ -126,5 +122,17 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
 div a {
   color: white;
+}
+
+/*--------------------------------------------*/
+
+.inputbox {
+  background-color: transparent;
+  border-style: none;
+  color: white;
+  font-size: 20pt;
+  height: 30px;
+}

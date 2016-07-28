@@ -12,24 +12,12 @@
       <a href="/classlist">Class Schedule</a>
       <a href="/info"> Contacts</a>
       <a href="/inputnotes">Notes</a>
-
     </div>
 
-      <div id="main">
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
-      </div>
+    <div id="main">
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
+    </div>
 
-      <script>
-      function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
-      }
-
-      function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
-      }
-      </script>
     <h1> Edit Contacts </h1>
 
     <form action="/edit" input="text" method="post">
@@ -52,12 +40,11 @@
       <input type="submit" value="Edit">
 
     </form>
+
     <br>
-    <div>
-      <a href="/">Home<a><br>
-      <a href="/input">Add Contacts</a><br>
-      <a href="/edit">Edit Contacts<a><br>
-      <a href="/info">View Contacts<a><br>
-    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="navigation.js"></script>
+
   </body>
 </html>

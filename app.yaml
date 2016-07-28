@@ -17,6 +17,10 @@ handlers:
   static_files: static/home.css
   upload: static/home\.css
 
+- url: /navigation\.js
+  static_files: static/navigation.js
+  upload: static/navigation\.js
+
 - url: /.*
   script: main.app
 
