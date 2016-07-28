@@ -10,6 +10,7 @@ import infohandler
 import edithandler
 import noteshandler
 import sidebarnotes
+
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
@@ -28,10 +29,10 @@ class MainHandler(webapp2.RequestHandler):
 
             signout_link_html = '<a style="color:white;" href="%s">Sign Out</a>' % (
                   users.create_logout_url('/'))
-          # If the user has previously been to our site, we greet them!
+            # If the user has previously been to our site, we greet them!
             if cssi_user:
                 self.response.write('''
-                    Welcome %s %s (%s)! <br> %s <br>''' % (
+                    <center><div style="color:white;" id = "welcome">Welcome %s %s (%s)! <br> %s <br></div></center>''' % (
                     cssi_user.first_name,
                     cssi_user.last_name,
                     email_address,
@@ -69,6 +70,7 @@ class MainHandler(webapp2.RequestHandler):
           # You shouldn't be able to get here without being logged in
           self.error(500)
           return
+
         cssi_user = classes.CssiUser(
             first_name=self.request.get('first_name'),
             last_name=self.request.get('last_name'),

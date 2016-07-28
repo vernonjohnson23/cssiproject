@@ -21,7 +21,7 @@ class InfoHandler(webapp2.RequestHandler):
         user = users.get_current_user().user_id()
 
         contact_query = classes.Contact.query(classes.Contact.userID == user)
-        contacts = contact_query.fetch()#.filter(contact_query.userid == user) #.fetch()
+        contacts = contact_query.fetch() #.filter(contact_query.userid == user) #.fetch()
 
         for contact in contacts:
 
