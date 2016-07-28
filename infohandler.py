@@ -11,7 +11,7 @@ jinja_environment = jinja2.Environment(
 
 class InfoHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template("info.html")
+        template = jinja_environment.get_template("welcome.html")
         html = template.render({})
         self.response.write(html)
 
@@ -22,20 +22,16 @@ class InfoHandler(webapp2.RequestHandler):
 
         contact_query = classes.Contact.query(classes.Contact.userID == user)
         contacts = contact_query.fetch()#.filter(contact_query.userid == user) #.fetch()
+
         for contact in contacts:
-            self.response.write("<br><br>%s | %s | %s | %s <br>" % (
-                                contact.contactName,
-                                contact.phoneNumber,
-                                contact.numberOfCalls,
-                                contact.dateOfLastCall))
 
             #if today's date is the same as the date of the reminder
             if datetime.datetime.today().date() == datetime.datetime.combine(contact.dateOfReminder, datetime.time.min).date():
-                self.response.write("CALL " + contact.contactName.upper() )
+                self.response.write("<script> alert('CALL " + contact.contactName.upper() + "'); </script>")
 
-        # template = jinja_environment.get_template("info.html")
-        # html = template.render({"contactName": contact.contactName,
-        #                         "phoneNumber": contact.phoneNumber,
-        #                         "numberOfCalls": contact.numberOfCalls,
-        #                         "dateOfLastCall": contact.dateOfLastCall})
-        # self.response.write(html)
+            template = jinja_environment.get_template("info.html")
+            html = template.render({"contactName": contact.contactName,
+                                    "phoneNumber": contact.phoneNumber,
+                                    "numberOfCalls": contact.numberOfCalls,
+                                    "dateOfLastCall": contact.dateOfLastCall})
+            self.response.write(html)
