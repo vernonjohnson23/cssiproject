@@ -85,7 +85,7 @@ app = webapp2.WSGIApplication([
     ('/edit', edithandler.EditHandler),
     ('/classschedule', sidebar.SideBarHandler),
     ('/classlist', classschedulehandler.ClassScheduleHandler),
-    ('/inputnotes', sidebarnotes.SideBarInputNotesHandler),
-    ('/notes', noteshandler.NotesHandler)
+    ('/notes', sidebarnotes.ListNotesHandler),
+    ('/inputnotes', noteshandler.NotesHandler)
 
 ], debug=True)

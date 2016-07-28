@@ -1,3 +1,4 @@
+
 import webapp2, jinja2, os, logging, time, datetime
 from google.appengine.api import users
 from google.appengine.ext import ndb
@@ -62,10 +63,3 @@ class EditHandler(webapp2.RequestHandler):
             contact.reminder = reminder
             contact.dateOfReminder = dateOfReminder
             contact.put()
-
-        # template = jinja_environment.get_template("info.html")
-        # html = template.render({"contact name": contactName,
-        #                         "phone number": phoneNumber,
-        #                         "number of calls": numberOfCalls,
-        #                         "date of last call": dateOfLastCall})
-        # self.response.write(html)

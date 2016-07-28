@@ -11,10 +11,10 @@ class NotesHandler(webapp2.RequestHandler):
       current_user = users.get_current_user()
       user = users.get_current_user().user_id()
       userID = current_user.user_id()
-      note_query = classes.NoteProperties.query(classes.NoteProperties.userID == user)
+      note_query = classes.NoteProperties.query()
       return note_query.fetch()
   def writenote(self, list_of_notes):
-      template = jinja_environment.get_template("noteslist.html")
+      template = jinja_environment.get_template("inputnotes.html")
       notes = ""
       for note_info in list_of_notes:
           notes += "<br>" + note_info.noteTitle +"<br>" + note_info.noteContent+ "<br>"
