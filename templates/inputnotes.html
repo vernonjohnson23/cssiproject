@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Input Notes </title>
+<link rel="stylesheet" href="intouch.css">
+</head>
+
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="/">Home</a>
+  <a href="/classlist">Class Schedule</a>
+  <a href="/info"> Contacts</a>
+  <a href="/inputnotes">Notes</a>
+
+</div>
+
+  <div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
+  </div>
+
+  <script>
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+  }
+  </script>
+
+
+  <h1> Input Your Notes </h1>
+
+  <div id="inputnoteform">
+  <form action="/inputnotes" input="text" method="post">
+      Enter note title:
+      <input type="text" name="noteTitle"><br>
+      Enter note contents:
+      <input type="text" name="noteContent"><br>
+  <input type="submit" value="Add">
+
+  </form>
+  <br>
+  <a href ="/inputnotes"> My Notes</a>
+
+  </div>
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

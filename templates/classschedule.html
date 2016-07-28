@@ -5,43 +5,46 @@
     <link rel="stylesheet" href="intouch.css">
   </head>
   <body>
-  <h1> Class Schedule </h1>
-  <h2> Add Entries </h2>
-  <div id = "classlist">
-<form action = "/classlist" input="text" method="post">
-  <p >
-    Class info: <br>
-    Enter class name:
-    <input type="text" name="className"><br>
-    Enter the room number:
-    <input type="text" name="roomNumber"><br>
-    Enter the days and times that you have the class:
-    <input type="text" name="classTime"><br>
-  </p>
-  <input type="submit" value="Submit">
-  <a href ="/classlist"> Class Schedule</a>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="/">Home</a>
+      <a href="/classlist">Class Schedule</a>
+      <a href="/info"> Contacts</a>
+      <a href="/inputnotes">Notes</a>
 
-</form>
-</div>
+    </div>
 
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
+    </div>
 
+    <script>
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+      }
+    </script>
+    <h1> Class Schedule </h1>
+    <h2> Add Entries </h2>
+    <div id = "classlist">
+      <form action = "/classlist" input="text" method="post">
+        <p >
+          Class info: <br>
+          Enter class name:
+          <input type="text" name="className"><br>
+          Enter the room number:
+          <input type="text" name="roomNumber"><br>
+          Enter the days and times that you have the class:
+          <input type="text" name="classTime"><br>
+        </p>
+        <input type="submit" value="Submit">
+        <a href ="/classlist"> Class Schedule</a>
+      </form>
+    </div>
   </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>

@@ -22,7 +22,6 @@ class ClassScheduleHandler(webapp2.RequestHandler):
       roomNumber = self.request.get("roomNumber")
       classTime = self.request.get('classTime')
       old_classes = self.readschedule()
-
       class_info = classes.Schedule(className=className, roomNumber=roomNumber, classTime=classTime)
       # writes to data store
       class_info.put()

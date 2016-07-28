@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> In Touch - Entries</title>
+    <title> Enter Contact</title>
     <link rel="stylesheet" href="intouch.css">
   </head>
 
   <body>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="/">Home</a>
+      <a href="/classlist">Class Schedule</a>
+      <a href="/info"> Contacts</a>
+      <a href="/inputnotes">Notes</a>
+
+    </div>
+
+      <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
+      </div>
+
+      <script>
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+      }
+      </script>
     <h1> Input Contacts </h1><br>
     <h2> Contact:</h2>
 
@@ -14,9 +38,9 @@
         Enter contact name:
         <input type="text" name="contactName"><br>
         Enter phone number:
-        <input type="text" name="phoneNumber"><br>
+        <input type="number" name="phoneNumber"><br>
         How many times have you contacted the above relative/friend?
-        <input type="text" name="numberOfCalls"><br>
+        <input type="number" name="numberOfCalls"><br>
         When was the last time you contacted the above relative/friend?
         <input type="date" name="dateOfLastCall">
       </div>
