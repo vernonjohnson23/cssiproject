@@ -32,7 +32,7 @@ class MainHandler(webapp2.RequestHandler):
           # If the user has previously been to our site, we greet them!
             if cssi_user:
                 self.response.write('''
-                    <div style="color:white;" id = "welcome">Welcome %s %s (%s)! <br> %s <br></div>''' % (
+                    <center><div style="color:white;" id = "welcome">Welcome %s %s (%s)! <br> %s <br></div></center>''' % (
                     cssi_user.first_name,
                     cssi_user.last_name,
                     email_address,

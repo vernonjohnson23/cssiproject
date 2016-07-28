@@ -8,11 +8,10 @@
 
   <body>
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn"></a>
       <a href="/" class="font">HOME</a>
       <a href="/classlist">SCHEDULE</a>
       <a href="/info">CONTACTS</a>
-      <ul class="no_bullets">
+      <ul>
         <li><a href="/input">add</a></li>
         <li><a href="/edit">edit</a></li>
         <li><a href="/info">view</a></li>
@@ -23,13 +22,14 @@
     <div id="main">
       <span style="font-size:30px;cursor:pointer" id="menu">☰ Menu</span>
     </div>
-    
+
     <h1> Class Schedule </h1>
     <h2> Add Entries </h2>
-    <div id = "classlist">
+    
+    <div id="input">
       <form action = "/classlist" input="text" method="post">
         <p >
-          Class info: <br>
+          Class Info <br>
           Enter class name:
           <input type="text" name="className"><br>
           Enter the room number:

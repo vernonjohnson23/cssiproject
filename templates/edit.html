@@ -8,49 +8,45 @@
 
   <body>
     <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn"></a>
       <a href="/" class="font">HOME</a>
       <a href="/classlist">SCHEDULE</a>
       <a href="/info">CONTACTS</a>
-      <ul class="no_bullets">
+      <ul>
         <li><a href="/input">add</a></li>
         <li><a href="/edit">edit</a></li>
         <li><a href="/info">view</a></li>
       </ul>
       <a href="/inputnotes">NOTES</a>
+      <ul>
+        <li><a href="/inputnotes">add</a></li>
+        <!-- <li><a href="/info">view</a></li> -->
+      </ul>
     </div>
 
     <div id="main">
       <span style="font-size:30px;cursor:pointer" id="menu">☰ Menu</span>
     </div>
 
-    <h1> Edit Contacts </h1>
+    <h1> EDIT CONTACTS </h1>
+    <h2> Contact </h2>
 
-    <form action="/edit" input="text" method="post">
-
-      <h2> Contact:</h2>
-
-      <p id = "contactsedit">
+    <div id="input">
+      <form action="/edit" input="text" method="post">
         Enter contact name:
-        <input type="text" name="contactName"><br>
+        <input type="text" name="contactName" class="inputbox"><br><br>
         Enter phone number:
-        <input type="text" name="phoneNumber"><br>
+        <input type="text" name="phoneNumber" class="inputbox"><br><br>
         How many times have you contacted the above relative/friend?
-        <input type="text" name="numberOfCalls"><br>
+        <input type="text" name="numberOfCalls" class="inputbox"><br><br>
         When was the last time you contacted the above relative/friend?
-        <input type="date" name="dateOfLastCall"><br>
+        <input type="date" name="dateOfLastCall" class="inputbox"><br><br>
         How many days from now would you like a reminder?
-        <input type="text" name="reminder"><br>
-      </p>
-
-      <input type="submit" value="Edit">
-
-    </form>
-
-    <br>
+        <input type="text" name="reminder" class="inputbox"><br><br>
+        <input type="submit" value="Edit">
+      </form>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="navigation.js"></script>
-
   </body>
 </html>
