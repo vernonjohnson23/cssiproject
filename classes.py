@@ -18,7 +18,8 @@ class Contact(ndb.Model):
     phoneNumber = ndb.StringProperty(required=True)
     numberOfCalls = ndb.IntegerProperty(required=False)
     dateOfLastCall = ndb.DateProperty(required=True)
-    #time of next call needs to be added
+    reminder = ndb.IntegerProperty(required=True)
+    dateOfReminder = ndb.DateProperty(required=True)
     userID = ndb.StringProperty(required=True)
 
 class CssiUser(ndb.Model):

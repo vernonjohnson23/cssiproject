@@ -20,21 +20,22 @@ class InfoHandler(webapp2.RequestHandler):
         #getting current user key
         user = users.get_current_user().user_id()
 
-        # user_query = CssiUser.query()
-        # users = user_query.fetch().filter()
-        # for user in users:
-            # self.response.write("user key: %s first name: %s last name: %s <br>" %
-            #                     (user.key.id(), user.first_name, user.last_name))
-
         contact_query = classes.Contact.query(classes.Contact.userID == user)
         contacts = contact_query.fetch()#.filter(contact_query.userid == user) #.fetch()
         for contact in contacts:
-            self.response.write("<br><br>%s | %s | %s | %s <br>" %
-                                (contact.contactName, contact.phoneNumber, contact.numberOfCalls, contact.dateOfLastCall))
+            self.response.write("<br><br>%s | %s | %s | %s <br>" % (
+                                contact.contactName,
+                                contact.phoneNumber,
+                                contact.numberOfCalls,
+                                contact.dateOfLastCall))
+
+            #if today's date is the same as the date of the reminder
+            if datetime.datetime.today().date() == datetime.datetime.combine(contact.dateOfReminder, datetime.time.min).date():
+                self.response.write("CALL " + contact.contactName.upper() )
 
         # template = jinja_environment.get_template("info.html")
-        # html = template.render({"contactName": contactName,
-        #                         "phoneNumber": phoneNumber,
-        #                         "numberOfCalls": numberOfCalls,
-        #                         "dateOfLastCall": dateOfLastCall})
+        # html = template.render({"contactName": contact.contactName,
+        #                         "phoneNumber": contact.phoneNumber,
+        #                         "numberOfCalls": contact.numberOfCalls,
+        #                         "dateOfLastCall": contact.dateOfLastCall})
         # self.response.write(html)

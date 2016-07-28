@@ -27,7 +27,7 @@ class MainHandler(webapp2.RequestHandler):
             html = template.render({})
             self.response.write(html)
 
-            signout_link_html = '<a href="%s">Sign Out</a>' % (
+            signout_link_html = '<a style="color:white;" href="%s">Sign Out</a>' % (
                   users.create_logout_url('/'))
           # If the user has previously been to our site, we greet them!
             if cssi_user:
@@ -55,7 +55,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write(html)
 
             self.response.write('''
-                <center><a href="%s">Sign in</a></center>''' % (
+                <center><a style="color:white;" href="%s">Sign in</a></center>''' % (
                 users.create_login_url('/')))
 
     def post(self):
