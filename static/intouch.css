@@ -1,10 +1,7 @@
 body {
   background-image: url("https://cdn.lafayette.edu/images/footer/campus_aerial-1440x810.jpg");
   background-size: auto;
-}
-
-#contactinput {
-  color: white;
+  font-size: 18pt;
 }
 
 h1, .title {
@@ -27,52 +24,16 @@ h1, .title2 {
   padding-bottom: 30px;
 }
 
-
-#nameinput {
-  display: block;
-  text-align: center;
-}
-
-#sidebar {
-  float:left;
-  width:250px;
-  margin-top: 45px;
-  padding: 3px;
-  padding: 3px;
-  border: 3px solid green;
-  border-radius: 15px 50px;
-  background-color: white;
-  opacity: 0.9;
-  box-shadow: 10px 10px 5px #888888;
-}
-
-#nav {
-  text-shadow:1.5px 1.5px green;
-  text-align: center;
-  color: black;
-  font-size: 25px;
-  margin-bottom: -8px;
-  margin-top: 10px;
-}
-
-#sidebaritems {
-  font-size: 20px;
+div a {
+  color: white;
 }
 
 p {
   color: white;
 }
-#si {
-  text-align: center;
-}
-
-#classlist, #contactinput, #contactsedit {
-  background-color: rgba(0,0,0,.4);
-  padding: 8px;
-}
 
 body {
-    font-family: "Lato", sans-serif;
+    font-family: Montserrat;
 }
 
 .sidenav {
@@ -94,9 +55,8 @@ body {
     color: white;
     display: block;
     transition: 0.3s;
-    text-shadow:1.5px 1.5px black;
-    font-family: Times;
-
+    text-shadow: 1.5px 1.5px black;
+    font-family: Montserrat;
 }
 
 .sidenav a:hover, .offcanvas a:focus{
@@ -111,6 +71,46 @@ body {
     margin-left: 50px;
 }
 
+#nameinput {
+  display: block;
+  text-align: center;
+}
+
+#sidebar {
+  float:left;
+  width:250px;
+  margin-top: 45px;
+  padding: 3px;
+  padding: 3px;
+  border: 3px solid green;
+  border-radius: 15px 50px;
+  background-color: white;
+  opacity: 0.9;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+#si {
+  text-align: center;
+}
+
+#classlist, #contactinput, #contactsedit {
+  background-color: rgba(0,0,0,.4);
+  padding: 8px;
+}
+
+#nav {
+  text-shadow:1.5px 1.5px green;
+  text-align: center;
+  color: black;
+  font-size: 25px;
+  margin-bottom: -8px;
+  margin-top: 10px;
+}
+
+#sidebaritems {
+  font-size: 20px;
+}
+
 #main {
     transition: margin-left .5s;
     padding: 16px;
@@ -118,16 +118,24 @@ body {
     text-shadow:1.5px 1.5px black;
 }
 
+#contactinput {
+  color: white;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
 
-div a {
-  color: white;
+/*--------------------------------------------*/
+
+ul {
+  list-style-type:none;
 }
 
-/*--------------------------------------------*/
+a {
+  text-decoration: none;
+}
 
 .inputbox {
   background-color: transparent;
