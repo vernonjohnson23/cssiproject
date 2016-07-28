@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="intouch.css">
-  <title> Your Classes </title>
-</head>
+  <head>
+    <link rel="stylesheet" href="intouch.css">
+    <title> Your Classes </title>
+  </head>
+  <body>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="/">Home</a>
+      <a href="/classlist">Class Schedule</a>
+      <a href="/info"> Contacts</a>
+      <a href="/inputnotes">Notes</a>
+    </div>
 
+    <div id="main">
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">☰ Menu</span>
+    </div>
+    <script>
+      function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+      }
 
-<body>
-  <div>
-  <h1> Your Classes </h1>
-  <p id ="classlist"> {{classes}} </p>
+      function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+      }
+      </script>
+    <h1> Your Classes </h1>
+    <p id ="classlist"> {{classes}} </p>
 </div>
-
 </body>
-
 
 </html>

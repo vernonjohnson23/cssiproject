@@ -8,8 +8,9 @@ import sidebar
 import inputhandler
 import infohandler
 import edithandler
-import classes
-
+import noteinput
+import noteshandler
+import sidebarnotes
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
@@ -82,5 +83,8 @@ app = webapp2.WSGIApplication([
     ('/info', infohandler.InfoHandler),
     ('/edit', edithandler.EditHandler),
     ('/classschedule', sidebar.SideBarHandler),
-    ('/classlist', classschedulehandler.ClassScheduleHandler)
+    ('/classlist', classschedulehandler.ClassScheduleHandler),
+    ('/notes', sidebarnotes.SideBarInputNotesHandler),
+    ('/inputnotes', noteshandler.NotesHandler)
+
 ], debug=True)

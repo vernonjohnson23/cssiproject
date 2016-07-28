@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Contacts</title>
+    <title> Your Notes </title>
     <link rel="stylesheet" href="intouch.css">
-  </head>
-<body>
+  <head>
+  <body>
+
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <a href="/">Home</a>
       <a href="/classlist">Class Schedule</a>
       <a href="/info"> Contacts</a>
       <a href="/inputnotes">Notes</a>
-
     </div>
 
     <div id="main">
@@ -20,21 +20,19 @@
 
     <script>
       function openNav() {
-          document.getElementById("mySidenav").style.width = "250px";
-          document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
       }
 
       function closeNav() {
-          document.getElementById("mySidenav").style.width = "0";
-          document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
       }
     </script>
 
-    <div id = "contactsinfo">
-      <p> Name: {{ contactName }} </p>
-      <p> Number: {{ phoneNumber }} </p>
-      <p> Number of Calls: {{ numberOfCalls }} </p>
-      <p> Date of Last Call: {{ dateOfLastCall }} </p><br>
-    </div>
-  </body>
+    <h1> Your Notes </h1>
+
+      <p> {{notes}}</p>
+    </body>
+
 </html>
