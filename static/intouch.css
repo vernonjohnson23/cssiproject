@@ -1,8 +1,10 @@
-body {
+body{
   background-image: url("https://cdn.lafayette.edu/images/footer/campus_aerial-1440x810.jpg");
   background-size: auto;
   font-size: 18pt;
   font-family: Montserrat;
+
+
 }
 
 h1 {
@@ -13,7 +15,8 @@ h1 {
   text-shadow: 2px 2px black;
   margin-top:-22px;
   margin-bottom: -40px;
-  padding-bottom: 30px
+  padding-bottom: 30px;
+  font-family: Montserrat;
 }
 
 h2 {
@@ -23,7 +26,7 @@ h2 {
   color: white;
 }
 
-div a {
+div a, #inputnotessection {
   color: white;
 }
 
@@ -88,7 +91,7 @@ p {
   text-align: center;
 }
 
-#input {
+#input, #inputnotessection {
   background-color: rgba(0,0,0,.4);
   padding: 8px;
   color: white;
