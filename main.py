@@ -8,7 +8,6 @@ import sidebar
 import inputhandler
 import infohandler
 import edithandler
-import noteinput
 import noteshandler
 import sidebarnotes
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
@@ -84,7 +83,7 @@ app = webapp2.WSGIApplication([
     ('/edit', edithandler.EditHandler),
     ('/classschedule', sidebar.SideBarHandler),
     ('/classlist', classschedulehandler.ClassScheduleHandler),
-    ('/notes', sidebarnotes.SideBarInputNotesHandler),
-    ('/inputnotes', noteshandler.NotesHandler)
+    ('/inputnotes', sidebarnotes.SideBarInputNotesHandler),
+    ('/notes', noteshandler.NotesHandler)
 
 ], debug=True)

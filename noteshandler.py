@@ -1,13 +1,17 @@
 import webapp2, jinja2, os, logging
 from google.appengine.ext import ndb
-import noteinput
+from google.appengine.api import users
+import classes
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_environment = jinja2.Environment(
   loader=jinja2.FileSystemLoader(template_dir))
 
 class NotesHandler(webapp2.RequestHandler):
   def readnote(self):
-      note_query = noteinput.NoteProperties.query()
+      current_user = users.get_current_user()
+      user = users.get_current_user().user_id()
+      userID = current_user.user_id()
+      note_query = classes.NoteProperties.query(classes.NoteProperties.userID == user)
       return note_query.fetch()
   def writenote(self, list_of_notes):
       template = jinja_environment.get_template("noteslist.html")
@@ -20,8 +24,10 @@ class NotesHandler(webapp2.RequestHandler):
       noteTitle = self.request.get("noteTitle")
       noteContent= self.request.get("noteContent")
       previous_notes = self.readnote()
-
-      note_info = noteinput.NoteProperties(noteTitle=noteTitle, noteContent=noteContent)
+      current_user = users.get_current_user()
+      userID=self.request.get("userID")
+      user = users.get_current_user().user_id()
+      note_info = classes.NoteProperties(noteTitle=noteTitle, noteContent=noteContent, userID=userID)
       # writes to data store
       note_info.put()
       logging.info(note_info.noteTitle + note_info.noteContent)

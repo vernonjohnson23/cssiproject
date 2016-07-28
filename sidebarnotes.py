@@ -11,3 +11,8 @@ class SideBarInputNotesHandler(webapp2.RequestHandler):
             template = jinja_environment.get_template("inputnotes.html")
             html = template.render({})
             self.response.write(html)
+class SideBarInputNotesHandler(webapp2.RequestHandler):
+        def post(self):
+            template = jinja_environment.get_template("inputnotes.html")
+            html = template.render({})
+            self.response.write(html)

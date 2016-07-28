@@ -6,13 +6,27 @@
 </head>
 
 <body>
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-  <a href="/">Home</a>
-  <a href="/classlist">Class Schedule</a>
-  <a href="/info"> Contacts</a>
-  <a href="/inputnotes">Notes</a>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="/">Home</a>
+    <a> Class Schedule</a>
+    <ul>
+        <li><a href="/classschedule">Add Class</a></li>
+        <li><a href="/classlist"> View Schedule</a> <li>
+    </ul>
+    <a> Contacts</a>
+    <ul>
+      <li> <a href="/input"> Add Contact </a></li>
+      <li> <a href="/edit"> Edit Contact </a> </li>
+      <li> <a href="/info"> View Contact</a></li>
+    </ul>
 
+    <a> Notes</a>
+    <ul>
+      <li> <a href = "/inputnotes"> Add Note </a></li>
+      <li> <a href="/notes"> View Notes </a></li>
+    </ul>
 </div>
 
   <div id="main">
@@ -44,7 +58,7 @@
 
   </form>
   <br>
-  <a href ="/inputnotes"> My Notes</a>
+  <a href ="/notes"> My Notes</a>
 
   </div>
 

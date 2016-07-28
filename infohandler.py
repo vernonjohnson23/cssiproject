@@ -11,7 +11,9 @@ jinja_environment = jinja2.Environment(
 
 class InfoHandler(webapp2.RequestHandler):
     def get(self):
-        
+        template = jinja_environment.get_template("welcome.html")
+        html = template.render({})
+        self.response.write(html)
 
         logging.info("info get")
 
