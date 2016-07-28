@@ -2,28 +2,25 @@ body {
   background-image: url("https://cdn.lafayette.edu/images/footer/campus_aerial-1440x810.jpg");
   background-size: auto;
   font-size: 18pt;
+  font-family: Montserrat;
 }
 
-h1, .title {
+h1 {
   font-size: 60pt;
-  font-style: Montserrat;
   font-weight: bold;
   color: white;
   text-align: center;
-  text-shadow: 2px 2px green;
+  text-shadow: 2px 2px black;
   margin-top:-22px;
   margin-bottom: -40px;
+  padding-bottom: 30px
 }
 
 h2 {
-   font-style: italic;
-   text-shadow:1.5px 1.5px green;
-   text-align: center;
-   color: white;
-}
-
-h1, .title2 {
-  padding-bottom: 30px;
+  font-style: italic;
+  text-shadow:1.5px 1.5px black;
+  text-align: center;
+  color: white;
 }
 
 div a {
@@ -32,10 +29,6 @@ div a {
 
 p {
   color: white;
-}
-
-body {
-    font-family: Montserrat;
 }
 
 .sidenav {
