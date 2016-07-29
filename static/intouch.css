@@ -91,7 +91,7 @@ p {
   text-align: center;
 }
 
-#input, #inputnotessection {
+#input, #inputnotessection, .displayinputs {
   background-color: rgba(0,0,0,.4);
   padding: 8px;
   color: white;
