@@ -26,7 +26,7 @@ h2 {
   color: white;
 }
 
-div a, #inputnotessection {
+div a, #input {
   color: white;
 }
 
@@ -91,7 +91,7 @@ p {
   text-align: center;
 }
 
-#input, #inputnotessection,  {
+#input, #input  {
   background-color: rgba(0,0,0,.4);
   padding: 8px;
   color: white;
